@@ -42,8 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Array\ArraySolutions.cs" />
+    <Compile Include="GreedyAlgo\GreedySolutions.cs" />
     <Compile Include="HashMapAndDictionary\HashMapSolutions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Search\SearchSolutions.cs" />
     <Compile Include="String\StringSolutions.cs" />
   </ItemGroup>
   <ItemGroup />
