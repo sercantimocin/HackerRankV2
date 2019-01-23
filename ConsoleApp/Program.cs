@@ -49,12 +49,21 @@ namespace ConsoleApp
 
             #endregion
 
-            var arr = new int[3][];
+            var arr = new int[11][];
             arr[0] = new int[2] { 2, 3 };
-            arr[1] = new int[2] { -1, -1 };
-            arr[2] = new int[2] { -1, -1 };
+            arr[1] = new int[2] { 4, -1 };
+            arr[2] = new int[2] { 5, -1 };
+            arr[3] = new int[2] { 6, -1 };
+            arr[4] = new int[2] { 7, 8 };
+            arr[5] = new int[2] {-1, 9 };
+            arr[6] = new int[2] { -1, -1 };
+            arr[7] = new int[2] { 10, 11 };
+            arr[8] = new int[2] { -1, -1 };
+            arr[9] = new int[2] { -1, -1 };
+            arr[10] = new int[2] { -1, -1 };
 
-            var a = SearchSolutions.swapNodes2(arr, new int[] { 1, 1 });
+
+            var a = SearchSolutions.swapNodes2(arr, new int[] { 2, 4 });
 
 
             Console.ReadKey();

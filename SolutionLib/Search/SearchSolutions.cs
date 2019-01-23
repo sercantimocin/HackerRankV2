@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SolutionLib.Model;
+using SolutionLib.Tree;
 
 namespace SolutionLib.Search
 {
@@ -121,6 +122,20 @@ namespace SolutionLib.Search
                 row++;
             }
 
+
+            var depths = new Dictionary<int, int>();
+            for (int i = 0; i < queries.Length; i++)
+            {
+                if (depths.ContainsKey(queries[i]))
+                {
+                    depths[queries[i]]++;
+                }
+                else
+                {
+                    depths.Add(queries[i], 1);
+                }
+            }
+
             var temp = new LinkedList<object>();
             var result = new int[queries.Length][];
 
@@ -129,6 +144,16 @@ namespace SolutionLib.Search
                 result[q] = new int[nodeCount];
                 temp.AddFirst(new KeyValuePair<Node, int>(root, 1));
                 int itemCount = 0;
+
+                if (q > 0)
+                {
+                    depths[queries[0]]--;
+
+                    if (depths[queries[0]] == 0)
+                    {
+                        depths.Remove(queries[0]);
+                    }
+                }
 
                 while (temp.Count > 0)
                 {
@@ -142,18 +167,17 @@ namespace SolutionLib.Search
                         if (node != null)
                         {
                             int nodeDepth = i.Value;
-                            int depth = queries[q];
 
-                            if (nodeDepth == depth)
+                            if (depths.ContainsKey(nodeDepth))
                             {
                                 Node t = node.left;
                                 node.left = node.right;
                                 node.right = t;
                             }
 
-                            temp.AddFirst(new KeyValuePair<Node, int>(node.right, ++nodeDepth));
+                            temp.AddFirst(new KeyValuePair<Node, int>(node.right, nodeDepth + 1));
                             temp.AddFirst(node.data);
-                            temp.AddFirst(new KeyValuePair<Node, int>(node.left, ++nodeDepth));
+                            temp.AddFirst(new KeyValuePair<Node, int>(node.left, nodeDepth + 1));
                         }
                     }
                     else
