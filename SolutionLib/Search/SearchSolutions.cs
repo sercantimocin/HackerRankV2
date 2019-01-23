@@ -27,8 +27,8 @@ namespace SolutionLib.Search
 
                 if (rData != -1)
                 {
-                    parent.rigth = new Node(rData);
-                    parentQueue.Enqueue(parent.rigth);
+                    parent.right = new Node(rData);
+                    parentQueue.Enqueue(parent.right);
                 }
 
                 if (lData != -1)
