@@ -94,14 +94,15 @@ namespace SolutionLib.Search
         public static int[][] swapNodes2(int[][] indexes, int[] queries)
         {
             var root = new Node(1);
-
             Queue<Node> parentQueue = new Queue<Node>();
             parentQueue.Enqueue(root);
-
             int row = 0;
+            int nodeCount = 0;
+
             while (parentQueue.Count > 0)
             {
                 var parent = parentQueue.Dequeue();
+                nodeCount++;
 
                 int lData = indexes[row][0];
                 if (lData != -1)
@@ -116,42 +117,54 @@ namespace SolutionLib.Search
                     parent.right = new Node(rData);
                     parentQueue.Enqueue(parent.right);
                 }
+
+                row++;
             }
 
-            var temp = new LinkedList<KeyValuePair<Node, int>>();
-            temp.AddFirst(new KeyValuePair<Node, int>(root, 1));
-            int itemCount = 0;
+            var temp = new LinkedList<object>();
+            var result = new int[queries.Length][];
 
             for (int q = 0; q < queries.Length; q++)
             {
+                result[q] = new int[nodeCount];
+                temp.AddFirst(new KeyValuePair<Node, int>(root, 1));
+                int itemCount = 0;
+
                 while (temp.Count > 0)
                 {
-                    KeyValuePair<Node, int> item = temp.First();
+                    var item = temp.First();
                     temp.RemoveFirst();
 
-                    Node node = item.Key;
-                    if (node != null)
+                    if (item is KeyValuePair<Node, int>)
                     {
-                        int nodeDepth = item.Value;
-                        int depth = queries[q];
-
-                        if (nodeDepth == depth)
+                        var i = (KeyValuePair<Node, int>)item;
+                        Node node = i.Key;
+                        if (node != null)
                         {
-                            Node t = node.left;
-                            node.left = node.right;
-                            node.right = t;
+                            int nodeDepth = i.Value;
+                            int depth = queries[q];
+
+                            if (nodeDepth == depth)
+                            {
+                                Node t = node.left;
+                                node.left = node.right;
+                                node.right = t;
+                            }
+
+                            temp.AddFirst(new KeyValuePair<Node, int>(node.right, ++nodeDepth));
+                            temp.AddFirst(node.data);
+                            temp.AddFirst(new KeyValuePair<Node, int>(node.left, ++nodeDepth));
                         }
-
-                        temp.AddFirst(new KeyValuePair<Node, int>(node.right, ++nodeDepth));
-                        temp.AddFirst(new KeyValuePair<Node, int>(node.left, ++nodeDepth));
-
-                        indexes[q][itemCount] = node.data;
+                    }
+                    else
+                    {
+                        result[q][itemCount] = (int)item;
                         itemCount++;
                     }
                 }
             }
 
-            return indexes;
+            return result;
         }
     }
 }

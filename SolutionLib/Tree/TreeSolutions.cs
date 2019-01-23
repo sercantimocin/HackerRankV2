@@ -36,7 +36,6 @@ namespace SolutionLib.Tree
          */
 
 
-        //For self training
         public static List<int> BreadthFirstTraversal(Node root)
         {
             if (root == null)
