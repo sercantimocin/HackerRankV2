@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -112,6 +113,41 @@ namespace SolutionLib.Tree
                         temp.AddFirst(n.right);
                         temp.AddFirst(n.data);
                         temp.AddFirst(n.left);
+                    }
+                    else
+                    {
+                        list.Add((int)current);
+                    }
+                }
+            }
+
+            return list;
+        }
+
+        public static List<int> PostOrderTraversal(Node root)
+        {
+            if (root == null)
+            {
+                return null;
+            }
+
+            List<int> list = new List<int>();
+            var temp = new LinkedList<object>();
+            temp.AddFirst(root);
+
+            while (temp.Count > 0)
+            {
+                var current = temp.First();
+                temp.RemoveFirst();
+
+                if (current != null)
+                {
+                    if (current is Node)
+                    {
+                        var c = current as Node;
+                        temp.AddFirst(c.data);
+                        temp.AddFirst(c.right);
+                        temp.AddFirst(c.left);
                     }
                     else
                     {
