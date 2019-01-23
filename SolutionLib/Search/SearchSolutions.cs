@@ -3,24 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SolutionLib.Model;
 
 namespace SolutionLib.Search
 {
     public class SearchSolutions
     {
-        public class Node
-        {
-            public int data;
-            public Node rigth;
-            public Node left;
-
-            public Node(int data)
-            {
-                this.data = data;
-            }
-        }
-
-
         static int[][] swapNodes(int[][] indexes, int[] queries)
         {
 
@@ -102,6 +90,5 @@ namespace SolutionLib.Search
 
             return indexes;
         }
-
     }
 }

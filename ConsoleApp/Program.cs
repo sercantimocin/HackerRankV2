@@ -5,7 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using SolutionLib.GreedyAlgo;
 using SolutionLib.HashMapAndDictionary;
+using SolutionLib.Model;
 using SolutionLib.String;
+using SolutionLib.Tree;
 
 namespace ConsoleApp
 {
@@ -18,7 +20,26 @@ namespace ConsoleApp
             //StringSolutions.isValid("abcdefghhgfedecba");
             //StringSolutions.isValid("aaaaabc");
             //HashMapSolutions.sherlockAndAnagrams("abba");
-            GreedySolutions.getMinimumCost(3, new int[] {1, 3, 5, 7, 9});
+            //GreedySolutions.getMinimumCost(3, new int[] {1, 3, 5, 7, 9});
+
+            var root = new Node(15);
+            root.rigth = new Node(10);
+            root.left = new Node(20);
+            root.left.rigth = new Node(18);
+            root.left.rigth.left = new Node(19);
+            root.rigth.rigth = new Node(8);
+            root.rigth.left = new Node(12);
+            root.rigth.rigth.rigth = new Node(6);
+            root.rigth.left.rigth = new Node(11);
+            root.rigth.left.left = new Node(13);
+            var list = TreeSolutions.depthFirstTraversal(root);
+
+            foreach (var i in list)
+            {
+                Console.Write($"{i} ");
+            }
+
+            Console.ReadKey();
         }
     }
 }
