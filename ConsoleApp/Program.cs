@@ -49,22 +49,41 @@ namespace ConsoleApp
 
             #endregion
 
-            var arr = new int[11][];
+            // swapNodes cases
+            //case 1
+            //var arr = new int[11][];
+            //arr[0] = new int[2] { 2, 3 };
+            //arr[1] = new int[2] { 4, -1 };
+            //arr[2] = new int[2] { 5, -1 };
+            //arr[3] = new int[2] { 6, -1 };
+            //arr[4] = new int[2] { 7, 8 };
+            //arr[5] = new int[2] {-1, 9 };
+            //arr[6] = new int[2] { -1, -1 };
+            //arr[7] = new int[2] { 10, 11 };
+            //arr[8] = new int[2] { -1, -1 };
+            //arr[9] = new int[2] { -1, -1 };
+            //arr[10] = new int[2] { -1, -1 };
+            //case 2
+            var arr = new int[17][];
             arr[0] = new int[2] { 2, 3 };
-            arr[1] = new int[2] { 4, -1 };
-            arr[2] = new int[2] { 5, -1 };
-            arr[3] = new int[2] { 6, -1 };
-            arr[4] = new int[2] { 7, 8 };
-            arr[5] = new int[2] {-1, 9 };
-            arr[6] = new int[2] { -1, -1 };
-            arr[7] = new int[2] { 10, 11 };
+            arr[1] = new int[2] { 4, 5 };
+            arr[2] = new int[2] { 6, -1 };
+            arr[3] = new int[2] { -1, 7 };
+            arr[4] = new int[2] { 8, 9 };
+            arr[5] = new int[2] { 10, 11 };
+            arr[6] = new int[2] { 12, 13 };
+            arr[7] = new int[2] { -1, 14 };
             arr[8] = new int[2] { -1, -1 };
-            arr[9] = new int[2] { -1, -1 };
-            arr[10] = new int[2] { -1, -1 };
+            arr[9] = new int[2] { 15, -1 };
+            arr[10] = new int[2] { 16, 17 };
+            arr[11] = new int[2] { -1, -1 };
+            arr[12] = new int[2] { -1, -1 };
+            arr[13] = new int[2] { -1, -1 };
+            arr[14] = new int[2] { -1, -1 };
+            arr[15] = new int[2] { -1, -1 };
+            arr[16] = new int[2] { -1, -1 };
 
-
-            var a = SearchSolutions.swapNodes2(arr, new int[] { 2, 4 });
-
+            var rrr = SearchSolutions.swapNodes2(arr, new int[] { 2, 3 });
 
             Console.ReadKey();
         }

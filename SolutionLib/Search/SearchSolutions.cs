@@ -122,20 +122,6 @@ namespace SolutionLib.Search
                 row++;
             }
 
-
-            var depths = new Dictionary<int, int>();
-            for (int i = 0; i < queries.Length; i++)
-            {
-                if (depths.ContainsKey(queries[i]))
-                {
-                    depths[queries[i]]++;
-                }
-                else
-                {
-                    depths.Add(queries[i], 1);
-                }
-            }
-
             var temp = new LinkedList<object>();
             var result = new int[queries.Length][];
 
@@ -144,16 +130,6 @@ namespace SolutionLib.Search
                 result[q] = new int[nodeCount];
                 temp.AddFirst(new KeyValuePair<Node, int>(root, 1));
                 int itemCount = 0;
-
-                if (q > 0)
-                {
-                    depths[queries[0]]--;
-
-                    if (depths[queries[0]] == 0)
-                    {
-                        depths.Remove(queries[0]);
-                    }
-                }
 
                 while (temp.Count > 0)
                 {
@@ -167,8 +143,9 @@ namespace SolutionLib.Search
                         if (node != null)
                         {
                             int nodeDepth = i.Value;
+                            int depth = queries[q];
 
-                            if (depths.ContainsKey(nodeDepth))
+                            if (nodeDepth % depth == 0)
                             {
                                 Node t = node.left;
                                 node.left = node.right;
