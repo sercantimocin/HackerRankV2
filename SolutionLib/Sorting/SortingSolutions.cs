@@ -9,7 +9,30 @@ namespace SolutionLib.Sorting
     class SortingSolutions
     {
         //Sorting: Bubble Sort
-        // https://www.hackerrank.com/challenges/ctci-bubble-sort/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=sorting
+        // https://www.hackerrank.com/challenges/ctci-bubble-sort/problem
+        static void countSwaps(int[] a)
+        {
+
+            int swapCount = 0;
+
+            for (int i = 0; i < a.Length; i++)
+            {
+                for (int j = i + 1; j < a.Length; j++)
+                {
+                    if (a[i] > a[j])
+                    {
+                        int temp = a[i];
+                        a[i] = a[j];
+                        a[j] = temp;
+                        swapCount++;
+                    }
+                }
+            }
+
+            Console.WriteLine($"Array is sorted in {swapCount} swaps.");
+            Console.WriteLine("First Element: {0}", a[0]);
+            Console.WriteLine("Last Element: {0}", a[a.Length - 1]);
+        }
 
         //Mark and Toys
         //https://www.hackerrank.com/challenges/mark-and-toys/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=sorting

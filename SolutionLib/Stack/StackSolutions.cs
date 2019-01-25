@@ -9,6 +9,70 @@ namespace SolutionLib.Stack
 {
     public class StackSolutions
     {
+        //Balanced Brackets
+        //https://www.hackerrank.com/challenges/balanced-brackets/problem
+        static string isBalanced(string s)
+        {
+            Stack<char> stack = new Stack<char>();
+
+            foreach (char c in s)
+            {
+                if (c == '{' || c == '(' || c == '[')
+                {
+                    stack.Push(c);
+                }
+
+                if (c == '}')
+                {
+                    if (stack.Count == 0)
+                    {
+                        return "NO";
+                    }
+
+                    var pairChar = stack.Pop();
+                    if (pairChar != '{')
+                    {
+                        return "NO";
+                    }
+                }
+
+                if (c == ')')
+                {
+                    if (stack.Count == 0)
+                    {
+                        return "NO";
+                    }
+
+                    var pairChar = stack.Pop();
+                    if (pairChar != '(')
+                    {
+                        return "NO";
+                    }
+                }
+
+                if (c == ']')
+                {
+                    if (stack.Count == 0)
+                    {
+                        return "NO";
+                    }
+
+                    var pairChar = stack.Pop();
+                    if (pairChar != '[')
+                    {
+                        return "NO";
+                    }
+                }
+            }
+
+            if (stack.Count > 0)
+            {
+                return "NO";
+            }
+
+            return "YES";
+        }
+
         //Queues: A Tale of Two Stacks
         //https://www.hackerrank.com/challenges/ctci-queue-using-two-stacks/problem
         public class MyQueue<T>
