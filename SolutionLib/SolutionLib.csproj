@@ -42,14 +42,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Array\ArraySolutions.cs" />
-    <Compile Include="GreedyAlgo\GreedySolutions.cs" />
+    <Compile Include="DynamicProgramming\DynamicProgSolutions.cs" />
+    <Compile Include="Greedy\GreedySolutions.cs" />
     <Compile Include="HashMapAndDictionary\HashMapSolutions.cs" />
+    <Compile Include="LinkedList\LinkedListSolutions.cs" />
+    <Compile Include="Miscellaneous\MiscSolutions.cs" />
     <Compile Include="Model\Models.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecursionAndBacktracking\RecursionSolutions.cs" />
     <Compile Include="Search\SearchSolutions.cs" />
+    <Compile Include="Sorting\SortingSolutions.cs" />
     <Compile Include="Stack\StackSolutions.cs" />
     <Compile Include="String\StringSolutions.cs" />
     <Compile Include="Tree\TreeSolutions.cs" />
+    <Compile Include="Warmup\WarmupSolutions.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
