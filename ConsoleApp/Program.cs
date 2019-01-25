@@ -7,6 +7,7 @@ using SolutionLib.GreedyAlgo;
 using SolutionLib.HashMapAndDictionary;
 using SolutionLib.Model;
 using SolutionLib.Search;
+using SolutionLib.Stack;
 using SolutionLib.String;
 using SolutionLib.Tree;
 
@@ -22,6 +23,70 @@ namespace ConsoleApp
             //StringSolutions.isValid("aaaaabc");
             //HashMapSolutions.sherlockAndAnagrams("abba");
             //GreedySolutions.getMinimumCost(3, new int[] {1, 3, 5, 7, 9});
+
+            var queue = new StackSolutions.MyQueue<int>();
+
+            string[] lines = System.IO.File.ReadAllLines(@"C:\Projects\GitHub\HackerRankV2\SolutionLib\Stack\input07.txt");
+
+
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Projects\GitHub\HackerRankV2\SolutionLib\Stack\result07.txt"))
+            {
+                for (int i = 1; i < lines.Length; i++)
+                {
+                    var inputs = lines[i].Split(' ');
+                    int operation = Convert.ToInt32(inputs[0]);
+
+                    if (operation == 1)
+                    { // enqueue
+                        queue.enqueue(Convert.ToInt32(inputs[1]));
+                    }
+                    else if (operation == 2)
+                    { // dequeue
+                        queue.dequeue();
+                    }
+                    else if (operation == 3)
+                    { // print/peek
+                      //Console.WriteLine(queue.peek());
+
+                        file.WriteLine(queue.peek());
+                    }
+                }
+            }
+
+            string[] results = System.IO.File.ReadAllLines(@"C:\Projects\GitHub\HackerRankV2\SolutionLib\Stack\result07.txt");
+            string[] outputs = System.IO.File.ReadAllLines(@"C:\Projects\GitHub\HackerRankV2\SolutionLib\Stack\output07.txt");
+
+            for (int i = 0; i < results.Length; i++)
+            {
+                if (results[i] != outputs[i])
+                {
+                    Console.WriteLine($"index:{i} - result:{results[i]} output:{outputs[i]}");
+                    break;
+                }
+            }
+
+            Console.WriteLine("bittim baba");
+
+            //q.enqueue(10);
+            //q.enqueue(21);
+
+            //Console.Write($"{q.peek()} ");
+            //q.dequeue();
+            //q.dequeue();
+            //q.enqueue(1);
+            //Console.Write($"{q.peek()} ");
+            //q.enqueue(2);
+            //Console.Write($"{q.peek()} ");
+            //q.enqueue(3);
+            //Console.Write($"{q.peek()} ");
+            //q.enqueue(4);
+            //Console.Write($"{q.peek()} ");
+            //q.dequeue();
+            //Console.Write($"{q.peek()} ");
+            //q.dequeue();
+            //q.dequeue();
+            //q.dequeue();
+            //q.dequeue();
 
             #region TreeTraining
 
@@ -49,6 +114,8 @@ namespace ConsoleApp
 
             #endregion
 
+            #region swapNodes
+
             // swapNodes cases
             //case 1
             //var arr = new int[11][];
@@ -64,28 +131,35 @@ namespace ConsoleApp
             //arr[9] = new int[2] { -1, -1 };
             //arr[10] = new int[2] { -1, -1 };
             //case 2
-            var arr = new int[17][];
-            arr[0] = new int[2] { 2, 3 };
-            arr[1] = new int[2] { 4, 5 };
-            arr[2] = new int[2] { 6, -1 };
-            arr[3] = new int[2] { -1, 7 };
-            arr[4] = new int[2] { 8, 9 };
-            arr[5] = new int[2] { 10, 11 };
-            arr[6] = new int[2] { 12, 13 };
-            arr[7] = new int[2] { -1, 14 };
-            arr[8] = new int[2] { -1, -1 };
-            arr[9] = new int[2] { 15, -1 };
-            arr[10] = new int[2] { 16, 17 };
-            arr[11] = new int[2] { -1, -1 };
-            arr[12] = new int[2] { -1, -1 };
-            arr[13] = new int[2] { -1, -1 };
-            arr[14] = new int[2] { -1, -1 };
-            arr[15] = new int[2] { -1, -1 };
-            arr[16] = new int[2] { -1, -1 };
+            //var arr = new int[17][];
+            //arr[0] = new int[2] { 2, 3 };
+            //arr[1] = new int[2] { 4, 5 };
+            //arr[2] = new int[2] { 6, -1 };
+            //arr[3] = new int[2] { -1, 7 };
+            //arr[4] = new int[2] { 8, 9 };
+            //arr[5] = new int[2] { 10, 11 };
+            //arr[6] = new int[2] { 12, 13 };
+            //arr[7] = new int[2] { -1, 14 };
+            //arr[8] = new int[2] { -1, -1 };
+            //arr[9] = new int[2] { 15, -1 };
+            //arr[10] = new int[2] { 16, 17 };
+            //arr[11] = new int[2] { -1, -1 };
+            //arr[12] = new int[2] { -1, -1 };
+            //arr[13] = new int[2] { -1, -1 };
+            //arr[14] = new int[2] { -1, -1 };
+            //arr[15] = new int[2] { -1, -1 };
+            //arr[16] = new int[2] { -1, -1 };
 
-            var rrr = SearchSolutions.swapNodes2(arr, new int[] { 2, 3 });
+            //var rrr = SearchSolutions.swapNodes(arr, new int[] { 2, 3 });
+
+            #endregion
+
+
 
             Console.ReadKey();
         }
+
+
+
     }
 }
