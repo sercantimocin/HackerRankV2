@@ -8,10 +8,10 @@ namespace SolutionLib.DynamicProgramming
 {
     public class DynamicProgSolutions
     {
+        // Tekrar çöz
         //https://www.hackerrank.com/challenges/max-array-sum/problem
         public static int maxSubsetSum(int[] arr)
         {
-
             if (arr.Length == 0)
             {
                 return 0;
@@ -23,18 +23,20 @@ namespace SolutionLib.DynamicProgramming
             }
 
             var storage = new Dictionary<string, int>();
-            int max = Int32.MinValue;
+            int max = int.MinValue;
 
-            for (int i = 0; i < arr.Length - 2; i++)
+            int k1 = 0;
+            int k2 = k1 + 2;
+            int k3 = k2 + 2;
+
+            while (k1 < arr.Length)
             {
-                int prev = i + 2;
-                int next = prev + 2;
-                int temp = arr[i] + arr[prev];
-                string key = $"{i}{prev}";
+                int temp = arr[k1] + arr[k2];
+                string key1 = $"{k1}{k2}";
 
-                if (!storage.ContainsKey(key))
+                if (!storage.ContainsKey(key1))
                 {
-                    storage.Add(key, temp);
+                    storage.Add(key1, temp);
                 }
 
                 if (temp > max)
@@ -42,27 +44,40 @@ namespace SolutionLib.DynamicProgramming
                     max = temp;
                 }
 
-                while (prev < arr.Length && next < arr.Length)
+                if (k3 < arr.Length)
                 {
-                    int t = storage[key] + arr[next];
-                    if (t > max)
+                    string key2 = $"{key1}{k3}";
+                    temp = storage[key1] + arr[k3];
+
+                    if (!storage.ContainsKey(key2))
                     {
-                        max = t;
+                        storage.Add(key2, temp);
                     }
 
-                    string newKey = $"{key}{next}";
-                    if (!storage.ContainsKey(newKey))
+                    if (temp > max)
                     {
-                        storage.Add(newKey, t);
+                        max = temp;
                     }
+                }
 
-                    next++;
-                    if (next >= arr.Length)
-                    {
-                        prev++;
-                        next = prev + 2;
-                    }
+                k3++;
 
+                if (k3 >= arr.Length)
+                {
+                    k2++;
+                    k3 = k2 + 2;
+                }
+
+                if (k2 >= arr.Length)
+                {
+                    k1++;
+                    k2 = k1 + 2;
+                    k3 = k2 + 2;
+                }
+
+                if (k2 >= arr.Length)
+                {
+                    break;
                 }
             }
 
