@@ -26,16 +26,17 @@ namespace ConsoleApp
 
             #region TreeTraining
 
-            //var root = new Node(15);
-            //root.left = new Node(10);
-            //root.left.left = new Node(8);
-            //root.left.right = new Node(12);
-            //root.left.left.left = new Node(6);
-            //root.left.right.left = new Node(11);
-            //root.left.right.right = new Node(13);
-            //root.right = new Node(20);
-            //root.right.left = new Node(18);
-            //root.right.left.right = new Node(19);
+            var root = new Node(15);
+            root.left = new Node(10);
+            root.left.left = new Node(8);
+            root.left.right = new Node(12);
+            root.left.left.left = new Node(6);
+            root.left.right.left = new Node(11);
+            root.left.right.right = new Node(13);
+            root.right = new Node(20);
+            root.right.left = new Node(18);
+            root.right.left.right = new Node(19);
+            root.right.left.right.right = new Node(90);
 
             //var list = TreeSolutions.BreadthFirstTraversal(root);
             //var list = TreeSolutions.PreOrderTraversal(root);
@@ -46,6 +47,10 @@ namespace ConsoleApp
             //{
             //    Console.Write($"{i} ");
             //}
+
+            var h=TreeSolutions.height(root);
+
+            Console.WriteLine(h);
 
 
             #endregion
@@ -90,8 +95,8 @@ namespace ConsoleApp
 
             #endregion
 
-            int a = DynamicProgSolutions.maxSubsetSum(new int[] { 3, 5, -7, 8, 10 });
-            Console.WriteLine(a);
+            //int a = DynamicProgSolutions.maxSubsetSum(new int[] { 3, 5, -7, 8, 10 });
+            //Console.WriteLine(a);
 
             Console.ReadKey();
         }

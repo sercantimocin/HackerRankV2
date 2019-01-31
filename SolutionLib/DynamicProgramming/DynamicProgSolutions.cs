@@ -8,7 +8,7 @@ namespace SolutionLib.DynamicProgramming
 {
     public class DynamicProgSolutions
     {
-        // Tekrar çöz
+        // Tekrar çöz brute force hali
         //https://www.hackerrank.com/challenges/max-array-sum/problem
         public static int maxSubsetSum(int[] arr)
         {

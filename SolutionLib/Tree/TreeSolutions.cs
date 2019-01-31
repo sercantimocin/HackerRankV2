@@ -157,5 +157,72 @@ namespace SolutionLib.Tree
 
             return list;
         }
+
+        // Valid comment out beacuse it coded with C++ 
+        //https://www.hackerrank.com/challenges/tree-height-of-a-binary-tree/problem
+        //int height(Node* root)
+        //{
+        //    if (root == NULL)
+        //    {
+        //        return 0;
+        //    }
+
+        //    if (root->left == NULL && root->right == NULL)
+        //    {
+        //        return 0;
+        //    }
+
+        //    return getHeight(root, 0) - 1;
+        //}
+
+        //int getHeight(Node* node, int height)
+        //{
+        //    if (node == NULL)
+        //    {
+        //        return height;
+        //    }
+
+        //    return std::max(getHeight(node->left, height + 1), getHeight(node->right, height + 1));
+        //}
+
+        public static int height(Node root)
+        {
+            if (root == null)
+            {
+                return 0;
+            }
+
+            if (root.left == null && root.right == null)
+            {
+                return 0;
+            }
+
+            List<Tuple<Node, int>> values = new List<Tuple<Node, int>>();
+            values.Add(new Tuple<Node, int>(root, 0));
+            int maxHeigth = 0;
+
+            while (values.Count > 0)
+            {
+                var v = values[values.Count-1];
+                Node node = v.Item1;
+                int height = v.Item2;
+                values.RemoveAt(values.Count - 1);
+
+                if (node.left != null)
+                {
+                    values.Add(new Tuple<Node,int>(node.left, height + 1));
+                }
+
+                if (node.right != null)
+                {
+                    values.Add(new Tuple<Node, int>(node.right, height + 1));
+                }
+
+                maxHeigth = Math.Max(maxHeigth, height);
+            }
+
+            return maxHeigth;
+        }
+
     }
 }
