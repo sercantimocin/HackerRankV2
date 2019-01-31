@@ -158,6 +158,7 @@ namespace SolutionLib.Tree
             return list;
         }
 
+        // Passed from Hackerrank
         // Valid comment out beacuse it coded with C++ 
         //https://www.hackerrank.com/challenges/tree-height-of-a-binary-tree/problem
         //int height(Node* root)
@@ -185,6 +186,8 @@ namespace SolutionLib.Tree
         //    return std::max(getHeight(node->left, height + 1), getHeight(node->right, height + 1));
         //}
 
+        // Same solution with above without recursion
+        //https://www.hackerrank.com/challenges/tree-height-of-a-binary-tree/problem
         public static int height(Node root)
         {
             if (root == null)
