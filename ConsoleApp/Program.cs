@@ -24,7 +24,6 @@ namespace ConsoleApp
             //StringSolutions.isValid("aaaaabc");
             //HashMapSolutions.sherlockAndAnagrams("abba");
             //GreedySolutions.getMinimumCost(3, new int[] {1, 3, 5, 7, 9});
-            WarmupSolutions.jumpingOnClouds(new[] { 0, 0, 1, 0, 0, 1, 0 });
 
             #region TreeTraining
 

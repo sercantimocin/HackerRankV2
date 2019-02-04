@@ -83,5 +83,38 @@ namespace SolutionLib.Warmup
 
             return stepCount;
         }
+
+        //https://www.hackerrank.com/challenges/repeated-string/problem
+        static long repeatedString(string s, long n)
+        {
+            long m = n / s.Length;
+            long remainder = n % s.Length;
+
+            long aCount = 0;
+            long remainCount = 0;
+
+            for (int i = 0; i < s.Length; i++)
+            {
+
+                bool isA = s[i] == 'a';
+                if (isA)
+                {
+                    aCount++;
+                }
+
+                if (remainder > 0)
+                {
+                    if (isA)
+                    {
+                        remainCount++;
+                    }
+                    remainder--;
+                }
+            }
+
+            long r = (aCount * m) + remainCount;
+
+            return r;
+        }
     }
 }
