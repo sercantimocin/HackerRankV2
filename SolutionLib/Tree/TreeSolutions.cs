@@ -227,5 +227,58 @@ namespace SolutionLib.Tree
             return maxHeigth;
         }
 
+        // Java 
+        //https://www.hackerrank.com/challenges/binary-search-tree-lowest-common-ancestor/problem
+        //public static Node lca(Node root, int v1, int v2)
+        //{
+        //    if (root == null)
+        //    {
+        //        return null;
+        //    }
+
+        //    Node current = root;
+
+        //    while (true)
+        //    {
+        //        if (current.data == v1 || current.data == v2)
+        //        {
+        //            return current;
+        //        }
+
+        //        boolean v1InLeft = isInBranch(current.left, v1);
+        //        boolean v2InRight = isInBranch(current.right, v2);
+
+        //        if ((v1InLeft && v2InRight) || (v1InLeft == false && v2InRight == false))
+        //        {
+        //            return current;
+        //        }
+        //        else if (v1InLeft)
+        //        {
+        //            current = current.left;
+        //        }
+        //        else
+        //        {
+        //            current = current.right;
+        //        }
+        //    }
+        //}
+
+        //public static boolean isInBranch(Node node, int nodeVal)
+        //{
+        //    if (node == null)
+        //    {
+        //        return false;
+        //    }
+
+        //    if (node.data == nodeVal)
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return isInBranch(node.left, nodeVal) || isInBranch(node.right, nodeVal);
+        //    }
+        //}
+
     }
 }
