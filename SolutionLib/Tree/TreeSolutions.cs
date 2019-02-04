@@ -35,7 +35,6 @@ namespace SolutionLib.Tree
                   Postorder Traversal : 4 5 2 3 1
          */
 
-
         public static List<int> BreadthFirstTraversal(Node root)
         {
             if (root == null)
@@ -227,7 +226,7 @@ namespace SolutionLib.Tree
             return maxHeigth;
         }
 
-        // Java 
+        // Passed from Hackerrank
         //https://www.hackerrank.com/challenges/binary-search-tree-lowest-common-ancestor/problem
         //public static Node lca(Node root, int v1, int v2)
         //{
@@ -280,5 +279,39 @@ namespace SolutionLib.Tree
         //    }
         //}
 
+        // Passed from Hackerrank
+        //https://www.hackerrank.com/challenges/tree-huffman-decoding/problem
+        //void decode(String s, Node root)
+        //{
+
+        //    StringBuilder builder = new StringBuilder();
+        //    Node current = root;
+
+        //    for (int i = 0; i < s.length(); i++)
+        //    {
+        //        char c = s.charAt(i);
+
+        //        //Move
+        //        if (c == '0')
+        //        {
+        //            current = current.left;
+        //        }
+        //        else
+        //        {
+        //            current = current.right;
+        //        }
+
+        //        //Insert new key
+        //        if (current.data != '\u0000')
+        //        {
+        //            builder.append(current.data);
+        //            current = root;
+        //        }
+
+        //    }
+
+
+        //    System.out.println(builder.toString());
+        //}
     }
 }
