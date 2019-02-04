@@ -33,5 +33,31 @@ namespace SolutionLib.Warmup
 
             return count;
         }
+
+        //https://www.hackerrank.com/challenges/counting-valleys/problem
+        static int countingValleys(int n, string s)
+        {
+
+            int depth = 0;
+            int count = 0;
+
+            foreach (char c in s)
+            {
+                if (c == 'U')
+                {
+                    depth++;
+                    if (depth == 0)
+                    {
+                        count++;
+                    }
+                }
+                else
+                {
+                    depth--;
+                }
+            }
+
+            return count;
+        }
     }
 }
