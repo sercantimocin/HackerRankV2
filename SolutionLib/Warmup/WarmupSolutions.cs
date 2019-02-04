@@ -59,5 +59,29 @@ namespace SolutionLib.Warmup
 
             return count;
         }
+
+        //https://www.hackerrank.com/challenges/jumping-on-the-clouds/problem
+        static int jumpingOnClouds(int[] c)
+        {
+            int current = 0;
+            int stepCount = 0;
+            while (current < c.Length - 1)
+            {
+                int doubleStep = current + 2;
+
+                if (doubleStep < c.Length && c[doubleStep] == 0)
+                {
+                    current = doubleStep;
+                }
+                else
+                {
+                    current++;
+                }
+
+                stepCount++;
+            }
+
+            return stepCount;
+        }
     }
 }

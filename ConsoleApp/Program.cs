@@ -11,6 +11,7 @@ using SolutionLib.Search;
 using SolutionLib.Stack;
 using SolutionLib.String;
 using SolutionLib.Tree;
+using SolutionLib.Warmup;
 
 namespace ConsoleApp
 {
@@ -23,20 +24,21 @@ namespace ConsoleApp
             //StringSolutions.isValid("aaaaabc");
             //HashMapSolutions.sherlockAndAnagrams("abba");
             //GreedySolutions.getMinimumCost(3, new int[] {1, 3, 5, 7, 9});
+            WarmupSolutions.jumpingOnClouds(new[] { 0, 0, 1, 0, 0, 1, 0 });
 
             #region TreeTraining
 
-            var root = new Node(15);
-            root.left = new Node(10);
-            root.left.left = new Node(8);
-            root.left.right = new Node(12);
-            root.left.left.left = new Node(6);
-            root.left.right.left = new Node(11);
-            root.left.right.right = new Node(13);
-            root.right = new Node(20);
-            root.right.left = new Node(18);
-            root.right.left.right = new Node(19);
-            root.right.left.right.right = new Node(90);
+            //var root = new Node(15);
+            //root.left = new Node(10);
+            //root.left.left = new Node(8);
+            //root.left.right = new Node(12);
+            //root.left.left.left = new Node(6);
+            //root.left.right.left = new Node(11);
+            //root.left.right.right = new Node(13);
+            //root.right = new Node(20);
+            //root.right.left = new Node(18);
+            //root.right.left.right = new Node(19);
+            //root.right.left.right.right = new Node(90);
 
             //var list = TreeSolutions.BreadthFirstTraversal(root);
             //var list = TreeSolutions.PreOrderTraversal(root);
@@ -48,9 +50,9 @@ namespace ConsoleApp
             //    Console.Write($"{i} ");
             //}
 
-            var h=TreeSolutions.height(root);
+            //var h=TreeSolutions.height(root);
 
-            Console.WriteLine(h);
+            //Console.WriteLine(h);
 
 
             #endregion
