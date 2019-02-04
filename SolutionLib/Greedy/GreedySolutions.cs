@@ -12,7 +12,14 @@ namespace SolutionLib.GreedyAlgo
         //https://www.hackerrank.com/challenges/minimum-absolute-difference-in-an-array/problem
         static int minimumAbsoluteDifference(int[] arr)
         {
-            return -1;
+            Array.Sort(arr);
+            int min = Int32.MaxValue;
+            for (int i = 0; i < arr.Length - 1; i++)
+            {
+                min = Math.Min(Math.Abs(arr[i] - arr[i + 1]), min);
+            }
+
+            return min;
         }
 
         //Luck Balance
