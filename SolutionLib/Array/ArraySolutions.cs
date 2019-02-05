@@ -241,4 +241,39 @@ public class ArraySolutions
         Console.WriteLine(bribeCount);
     }
 
+    /*
+    int ans = 0;
+    for (int i = q.size() - 1; i >= 0; i--) {
+        if (q[i] - (i + 1) > 2) {
+            cout << "Too chaotic" << endl;
+            return;
+        }
+        for (int j = max(0, q[i] - 2); j < i; j++)
+            if (q[j] > q[i]) ans++;
+    }
+    cout << ans << endl;
+     */
+
+    //Brute Force
+    //https://www.hackerrank.com/challenges/crush/problem
+    static long arrayManipulation(int n, int[][] queries)
+    {
+        var temp = new int[n];
+        for (int i = 0; i < queries.GetLength(0); i++)
+        {
+            for (int j = queries[i][0] - 1; j <= queries[i][1] - 1; j++)
+            {
+                temp[j] += queries[i][2];
+            }
+        }
+
+        int max = Int32.MinValue;
+
+        for (int j = 0; j < n; j++)
+        {
+            max = Math.Max(temp[j], max);
+        }
+
+        return max;
+    }
 }
