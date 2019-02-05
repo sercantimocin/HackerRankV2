@@ -136,4 +136,55 @@ public class ArraySolutions
 
         return swapCount;
     }
+
+    //https://www.hackerrank.com/challenges/new-year-chaos/problem
+    static void minimumBribes(int[] q)
+    {
+        int bribeCount = 0;
+        int findNum = q.Length;
+        int expectedIndex = findNum - 1;
+
+        while (findNum > 0)
+        {
+            int actualIndex = findInArray(q, findNum);
+
+            if (actualIndex == expectedIndex)
+            {
+                findNum--;
+                expectedIndex--;
+            }
+            else
+            {
+                if (Math.Abs(expectedIndex - actualIndex) > 2)
+                {
+                    Console.WriteLine("Too chaotic");
+                    return;
+                }
+
+                while (actualIndex != expectedIndex)
+                {
+                    int t = q[actualIndex];
+                    q[actualIndex] = q[actualIndex + 1];
+                    q[actualIndex + 1] = t;
+                    actualIndex++;
+                    bribeCount++;
+                }
+            }
+        }
+
+        Console.WriteLine(bribeCount);
+    }
+
+    static int findInArray(int[] q, int findNum)
+    {
+        for (int i = q.Length - 1; i >= 0; i--)
+        {
+            if (findNum == q[i])
+            {
+                return i;
+            }
+        }
+
+        return -1;
+    }
 }
