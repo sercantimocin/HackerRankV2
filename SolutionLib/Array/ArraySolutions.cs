@@ -137,6 +137,7 @@ public class ArraySolutions
         return swapCount;
     }
 
+    // v1 More complex
     //https://www.hackerrank.com/challenges/new-year-chaos/problem
     static void minimumBribes(int[] q)
     {
@@ -187,4 +188,57 @@ public class ArraySolutions
 
         return -1;
     }
+
+    //v2 More complex
+    //https://www.hackerrank.com/challenges/new-year-chaos/problem
+    public static void minimumBribes2(int[] q)
+    {
+        int bribeCount = 0;
+        int findNum = q.Length;
+        int expectedIndex = findNum - 1;
+
+        Dictionary<int, int> map = new Dictionary<int, int>();
+        for (int j = 0; j < q.Length; j++)
+        {
+            map.Add(q[j], j);
+        }
+
+        while (findNum > 0)
+        {
+            int actualIndex = map[findNum];
+
+            if (actualIndex == expectedIndex)
+            {
+                findNum--;
+                expectedIndex--;
+            }
+            else
+            {
+                if (Math.Abs(expectedIndex - actualIndex) > 2)
+                {
+                    Console.WriteLine("Too chaotic");
+                    return;
+                }
+
+                while (actualIndex != expectedIndex)
+                {
+                    map[q[actualIndex + 1]]--;
+                    map[q[actualIndex]]++;
+
+                    int t = q[actualIndex];
+                    q[actualIndex] = q[actualIndex + 1];
+                    q[actualIndex + 1] = t;
+
+                    actualIndex++;
+                    bribeCount++;
+                }
+
+                findNum--;
+                expectedIndex--;
+            }
+        }
+
+        Console.WriteLine(bribeCount);
+    }
+
 }
