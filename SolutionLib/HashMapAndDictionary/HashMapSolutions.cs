@@ -80,9 +80,8 @@ namespace SolutionLib.HashMapAndDictionary
 
         // Sherlock and Anagrams
         //https://www.hackerrank.com/challenges/sherlock-and-anagrams/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=dictionaries-hashmaps
-        public static int sherlockAndAnagrams(string s)
+        static int sherlockAndAnagrams(string s)
         {
-
             var chars = new Dictionary<char, int>();
 
             for (int i = 0; i < s.Length; i++)
@@ -109,14 +108,21 @@ namespace SolutionLib.HashMapAndDictionary
                 }
             }
 
+            var subStrs = new List<string>();
+
             for (int i = 2; i < s.Length; i++)
             {
-                for (int j = 1; j <= s.Length - i; j++)
+                for (int j = 0; j <= s.Length - i; j++)
                 {
-                    string subStr1 = s.Substring(j - 1, i);
-                    string subStr2 = s.Substring(j, i);
+                    subStrs.Add(s.Substring(j, i));
+                }
+            }
 
-                    if (isAnagram(subStr1, subStr2))
+            for (int i = 0; i < subStrs.Count - 1; i++)
+            {
+                for (int j = i + 1; j < subStrs.Count; j++)
+                {
+                    if (isAnagram(subStrs[i], subStrs[j]))
                     {
                         anagramCount++;
                     }
