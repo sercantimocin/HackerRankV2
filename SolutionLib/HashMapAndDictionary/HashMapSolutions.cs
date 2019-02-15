@@ -80,7 +80,7 @@ namespace SolutionLib.HashMapAndDictionary
 
         // Sherlock and Anagrams
         //https://www.hackerrank.com/challenges/sherlock-and-anagrams/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=dictionaries-hashmaps
-        static int sherlockAndAnagrams(string s)
+        public static int sherlockAndAnagrams(string s)
         {
             var chars = new Dictionary<char, int>();
 
@@ -145,7 +145,7 @@ namespace SolutionLib.HashMapAndDictionary
             }
 
             int dividend = 1;
-            for (int i = n; i > r; i--)
+            for (int i = n; i > (n - r); i--)
             {
                 dividend *= i;
             }
