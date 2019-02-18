@@ -75,6 +75,90 @@ namespace SolutionLib.Stack
 
         //Queues: A Tale of Two Stacks
         //https://www.hackerrank.com/challenges/ctci-queue-using-two-stacks/problem
+
+        //https://www.hackerrank.com/challenges/castle-on-the-grid/problem
+        public static int minimumMoves(string[] grid, int startX, int startY, int goalX, int goalY)
+        {
+            int n = grid.GetLength(0);
+            Stack<string> path = new Stack<string>();
+            bool isXPath = true;
+
+            while ((startX == goalX && startY == goalY) == false)
+            {
+                if (isXPath)
+                {
+                    int diffX = goalX - startX;
+                    if (diffX == 0)
+                    {
+                        isXPath = false;
+                        continue;
+                    }
+
+                    if (diffX > 0)
+                    {
+                        startX++;
+                        path.Push("E");
+                    }
+                    else
+                    {
+                        startX--;
+                        path.Push("W");
+                    }
+
+                    var current = grid[startY][startX];
+                    if (current == 'X' || startX < 0 || startX >= n)
+                    {
+                        path.Pop();
+                        isXPath = false;
+                    }
+                }
+                else
+                {
+                    int diffY = goalY - startY;
+
+                    if (diffY == 0)
+                    {
+                        isXPath = true;
+                        continue;
+                    }
+
+                    if (diffY > 0)
+                    {
+                        startY++;
+                        path.Push("N");
+                    }
+                    else
+                    {
+                        startY--;
+                        path.Push("S");
+                    }
+
+                    var current = grid[startY][startX];
+                    if (current == 'X' || startY < 0 || startY >= n)
+                    {
+                        path.Pop();
+                        isXPath = true;
+                    }
+                }
+            }
+
+            string lastChr = path.Pop(); 
+            string currentChr = lastChr;
+            int counter = 0;
+            while (path.Count > 0)
+            {
+                lastChr = currentChr;
+                currentChr = path.Pop();
+
+                if (lastChr != currentChr )
+                {
+                    counter++;
+                }
+            }
+
+            return counter;
+        }
+
         public class MyQueue<T>
         {
             Stack<T> stackNewestOnTop = new Stack<T>();
