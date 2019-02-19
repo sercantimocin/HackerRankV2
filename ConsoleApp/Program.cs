@@ -31,7 +31,7 @@ namespace ConsoleApp
 
             var grid = new string[3] { "...", ".X.", ".X." };
 
-            var a = StackSolutions.minimumMoves(grid, 2, 0, 0, 2);
+            var a = StackSolutions.minimumMoves(grid, 2, 0, 2, 2);
             Console.WriteLine(a);
 
             #region TreeTraining

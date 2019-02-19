@@ -144,7 +144,7 @@ namespace SolutionLib.Stack
 
             string lastChr = path.Pop(); 
             string currentChr = lastChr;
-            int counter = 0;
+            int counter = 1;
             while (path.Count > 0)
             {
                 lastChr = currentChr;
